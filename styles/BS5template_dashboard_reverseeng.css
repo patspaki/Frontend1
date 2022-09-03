@@ -1,5 +1,9 @@
+:root {
+    --bs-light-rgb: 255, 244, 213;
+}
+
+
 .sidebar {
-    background: cadetblue !important;
     position: fixed;
     top: 0;
     /* rtl:raw:
@@ -13,4 +17,40 @@
     padding: 48px 0 0;
     /* Height of navbar */
     box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+
+
+}
+
+.bg-light {
+    --bs-bg-opacity: 1;
+    background-color: rgba(var(--bs-light-rgb), var(--bs-bg-opacity)) !important;
+}
+
+
+
+.d-md-block {
+    display: block !important
+}
+
+.col-md-3 {
+    flex: 0 0 auto;
+    width: 40%;
+}
+
+.col-lg-2 {
+    flex: 0 0 auto;
+    width: 16.66666667%
+}
+
+
+
+.px-md-4 {
+    padding-right: 0;
+
+}
+
+media (max-width: 767.98px) {
+    .sidebar {
+        top: 5rem;
+    }
 }
