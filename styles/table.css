@@ -1,0 +1,79 @@
+.container_table_child {
+  overflow-x: auto;
+  /*should disable/change to none to allow header to be sticky like in Coinmarketcap.com*/
+  width: 50%;
+  border: 1px solid black;
+}
+
+
+#table_child {
+  background: rgb(220, 200, 200);
+  border-collapse: collapse;
+
+}
+
+/* .container_table_child > #table_child > thead > th, .container_table_child > #table_child > tbody > td {
+  padding: 4px;
+  border: 1px solid black;
+  width: 100px;
+  /* min-width: 100px; */
+/* max-width: 1500px; */
+
+/*white-space: nowrap;
+}  
+*/
+
+/* td, th {
+  padding: 4px;
+  border: 1px solid black;
+  min-width: 100px;
+  max-width: 1500px;
+
+  white-space: nowrap;
+} */
+
+
+#table_child>thead>tr th,
+#table_child>tbody>tr td {
+  padding: 4px;
+  border: 1px solid black;
+  min-width: 100px;
+  max-width: 1500px;
+
+  white-space: nowrap;
+}
+
+
+thead th:first-child,
+tbody td:first-child {
+  position: -webkit-sticky;
+  /* for Safari */
+  position: sticky;
+  top: 0;
+  left: 0;
+  /*required by sticky*/
+  z-index: 1;
+  background: rgb(255, 180, 180);
+
+
+}
+
+thead tr:first-child,
+thead th:first-child {
+  position: -webkit-sticky;
+  /* for Safari */
+  position: sticky;
+  top: 0;
+  left: 0;
+  /*required by sticky*/
+  z-index: 2;
+  background-color: white;
+}
+
+
+/* thead th:first-child, tbody td:first-child {
+  border-left: none;
+}
+thead th:last-child, tbody td:last-child {
+  border-right: none;
+} */

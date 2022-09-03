@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <title>RSA</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- A website that is zoomable by pinching: -->
+    <!-- <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no"> -->
+
+    <!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> -->
+
+    <!--my css-->
+    <link href="styles/normalize.css" rel="stylesheet" type="text/css">
+    <link href="styles/rsadata1.css" rel="stylesheet" type="text/css">
+    <link href="styles/table.css" rel="stylesheet" type="text/css">
+
+
+
+</head>
+
+
+
+<body>
+    <nav class="navbar_top">
+        <button>
+            Menu
+        </button>
+    </nav>
+
+
+    <div class="flex-container">
+        <nav class="navbar_side">
+            <li>
+                <button>
+                    Home
+                </button>
+            </li>
+            <li>
+                <button>
+                    Data Analysis
+                </button>
+                <div>
+                    <ul>
+                        <li><a href="#">Reddit</a></li>
+                        <li><a href="#">Economics</a></li>
+                        <li><a href="#">Map</a></li>
+                    </ul>
+                </div>
+            </li>
+        </nav>
+        <div class="main">
+            <div>
+                <form action="http://127.0.0.1:5000/formtest1" method="POST">
+                    formtest1<br>
+                    <label for="name">Enter Name:</label><br>
+                    <input id="name" type="text" placeholder="placeholder" /><br>
+                    <label for="name2">Enter Name2:</label><br>
+                    <input id="name2" type="text" value="value" /><br>
+                    <input type="submit" value="Submit" />
+                </form>
+            </div>
+            <button onclick="fetchsql()">fetchsql</button>
+            <div id="container_table_parent" class="container_table_parent">no datatable_parent
+            </div>
+            <div class="container_table_child">
+                <table id="table_child">
+                    <thead>
+                        <tr>
+                            <th>Numberss</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Alfreds Futterkiste</td>
+                        </tr>
+                        <tr>
+                            <td>Centro comercial Moctezuma</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script>
+        function fetchsql_parent() {
+            fetch('http://127.0.0.1:5000/test_fetchsql_parent')
+                .then(response => response.json())
+                .then(function (data) {
+                    var str = JSON.stringify(data, null, 4)
+                    //var str = data
+                    // document.getElementById("divtext1").innerHTML = str
+                    console.log(data)
+                    console.log("obtained from backend: " + typeof (data))
+                    console.log(data.length)
+
+                    document.getElementById("datatable_parent_id").innerHTML = ''
+
+                    var string_placeholder1 = ''
+                    // for (const key in data[0]) {
+                    //     console.log(key); 
+                    //     var string1 = `${key}</br>`; //use ` instead of '
+                    //     string_placeholder1 += string1;
+                    // }
+                    // string_placeholder1 += '</br>'
+
+
+                    for (var i = 0; i < data.length; i++) {
+                        for (const key in data[i]) {
+                            var value1 = `${key}: ${data[i][key]}</br>`; //use ` instead of '
+                            string_placeholder1 += value1;
+                        }
+                        string_placeholder1 += '</br>'
+                    }
+                    document.getElementById("datatable_parent_id").innerHTML = string_placeholder1;
+                });
+        }
+
+
+        function fetchsql() {
+            fetch('http://127.0.0.1:5000/test_fetchsql')
+                // fetch("http://huesset.com/test_fetchsql")
+                .then(response => response.json())
+                .then(function (data) {
+                    // document.getElementById("divtext1").innerHTML = data
+
+                    var str = JSON.stringify(data, null, 4)
+                    //var str = data
+                    // document.getElementById("divtext1").innerHTML = str
+                    console.log(data)
+                    console.log("obtained from backend: " + typeof (data))
+                    console.log(data.length)
+
+                    var string_placeholder1 = ''
+                    string_placeholder1 += '<thead><tr>'
+                    for (const key in data[0]) {
+                        console.log(key);
+                        var string1 = `<th>${key}</th>`; //use ` instead of '
+                        string_placeholder1 += string1;
+
+                    }
+                    string_placeholder1 += '</tr></thead>'
+
+
+                    for (var i = 0; i < data.length; i++) {
+                        string_placeholder1 += '<tbody><tr>'
+                        for (const key in data[i]) {
+                            var value1 = `<td>${data[i][key]}</td>`; //use ` instead of '
+                            string_placeholder1 += value1;
+                        }
+                        string_placeholder1 += '</tr></tbody>'
+                    }
+                    document.getElementById("table_child").innerHTML = string_placeholder1;
+                });
+        }
+
+        fetchsql_parent();
+        fetchsql();
+
+        console.log("SSSS" + document.querySelector('div').innerHTML);
+        // console.log("SSSS" + document.querySelectorAll('div').innerHTML);
+        nodelist1 = document.querySelectorAll('div');
+        for (a in nodelist1) {
+            console.log('nodeee ' + a);
+        };
+
+    </script>
+
+    <script src="scripts/rsadata1.js"></script>
+
+</body>
+
+
+</html>
