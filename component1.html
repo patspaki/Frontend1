@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <title>notitle</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="styles/.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <style>
+
+
+  </style>
+</head>
+
+<body>
+  <button onclick="myFunction('Demo1')">
+Accordion 1</button>
+
+<div id="Demo1" class="w3-hide">
+  <a class="w3-button w3-block w3-left-align" href="#">Link 1</a>
+  <a class="w3-button w3-block w3-left-align" href="#">Link 2</a>
+  <a class="w3-button w3-block w3-left-align" href="#">Link 3</a>
+</div>
+  <script>
+
+
+    function myFunction(id) {
+      var x = document.getElementById(id);
+      if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+      } else {
+        x.className = x.className.replace(" w3-show", "");
+      }
+    }
+  </script>
+</body>
+
+</html>

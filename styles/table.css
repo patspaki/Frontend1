@@ -1,7 +1,7 @@
 .container_table_child {
   overflow-x: auto;
   /*should disable/change to none to allow header to be sticky like in Coinmarketcap.com*/
-  width: 50%;
+  width: 100%;
   border: 1px solid black;
 }
 

@@ -20,6 +20,54 @@
 }
 
 .bg-light {
-    --bs-bg-opacity: 0.2;
+    --bs-bg-opacity: 0.9;
     background-color: rgba(var(--bs-light-rgb), var(--bs-bg-opacity)) !important;
+}
+
+
+main {
+    background-color: rgb(200, 200, 180);
+}
+
+#sidebarMenu {
+    overflow-y: auto;
+}
+/* overrides media queries?*/
+/* .col-md-3 {
+    flex: 0 0 auto;
+    width: 25%
+}
+
+.col-md-9 {
+    flex: 0 0 auto;
+    width: 75%
+} */
+
+
+.container-fluid,
+.container-lg,
+.container-md,
+.container-sm,
+.container-xl,
+.container-xxl {
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 0;
+    width: 100%;
+    padding-right: calc(var(--bs-gutter-x) * .5);
+    padding-left: calc(var(--bs-gutter-x) * .5);
+    margin-right: auto;
+    margin-left: auto;
+}
+
+
+
+
+.row {
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 0;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: calc(-1 * var(--bs-gutter-y));
+    margin-right: calc(-.5 * var(--bs-gutter-x));
+    margin-left: calc(-.5 * var(--bs-gutter-x))
 }
