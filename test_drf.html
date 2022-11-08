@@ -1,0 +1,234 @@
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="robots" content="NONE,NOARCHIVE" />
+
+    <base href="http://127.0.0.1:8000/">
+
+    <title>Login – Django REST framework</title>
+
+    <link rel="stylesheet" type="text/css" href="/static/rest_framework/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/static/rest_framework/css/bootstrap-tweaks.css" />
+
+    <link rel="stylesheet" type="text/css" href="/static/rest_framework/css/prettify.css" />
+    <link rel="stylesheet" type="text/css" href="/static/rest_framework/css/default.css" />
+
+    <style>
+        #btn-link {
+            border: none;
+            outline: none;
+            background: none;
+            display: block;
+            padding: 3px 20px;
+            clear: both;
+            font-weight: 400;
+            line-height: 1.42857143;
+            color: #a30000;
+            white-space: nowrap;
+            width: 100%;
+            text-align: left;
+        }
+
+        #btn-link:hover {
+            background: #eeeeee;
+            color: #c20000;
+        }
+    </style>
+</head>
+
+<body class="vsc-initialized">
+    <div class="wrapper">
+        <div class="navbar navbar-static-top navbar-inverse" role="navigation" aria-label="navbar">
+            <div class="container">
+                <span>
+                    <a class="navbar-brand" rel="nofollow" href="https://www.django-rest-framework.org/">
+                        Django REST framework
+                    </a>
+                </span>
+                <ul class="nav navbar-nav pull-right">
+                    <li><a href="/dj-rest-auth/login/">Login</a></li>
+
+                    <li><a href="/dj-rest-auth/registration/">Register</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="container">
+            <ul class="breadcrumb">
+                <li class="active"><a href="/dj-rest-auth/login/">Login</a></li>
+            </ul>
+
+            <!-- Content -->
+            <div id="content" role="main" aria-label="content">
+                <div class="region" aria-label="request form">
+                    <form class="button-form" action="/dj-rest-auth/login/" data-method="OPTIONS">
+                        <button class="btn btn-primary js-tooltip" title=""
+                            data-original-title="Make an OPTIONS request on the Login resource">
+                            OPTIONS
+                        </button>
+                    </form>
+                </div>
+
+                <div class="content-main" role="main" aria-label="main content">
+                    <div class="page-header">
+                        <h1>Login</h1>
+                    </div>
+                    <div style="float: left">
+                        <p>
+                            Check the credentials and return the REST Token<br />if the
+                            credentials are valid and authenticated.<br />Calls Django Auth
+                            login method to register User ID<br />in Django session
+                            framework<br /><br />Accept the following POST parameters:
+                            username, password<br />Return the REST Framework Token Object's
+                            key.
+                        </p>
+                    </div>
+
+                    <div class="request-info" style="clear: both" aria-label="request info">
+                        <pre
+                            class="prettyprint"><b><span class="pln">GET</span></b><span class="pln"> </span><span class="pun">/</span><span class="pln">dj</span><span class="pun">-</span><span class="pln">rest</span><span class="pun">-</span><span class="pln">auth</span><span class="pun">/</span><span class="pln">login</span><span class="pun">/</span></pre>
+                    </div>
+
+                    <div class="response-info" aria-label="response info">
+                        <pre class="prettyprint"><span class="meta nocode"><b>HTTP 405 Method Not Allowed</b>
+<b>Allow:</b> <span class="lit">POST, OPTIONS</span>
+<b>Content-Type:</b> <span class="lit">application/json</span>
+<b>Vary:</b> <span class="lit">Accept</span>
+
+</span><span class="pun">{</span><span class="pln">
+</span><span class="str">"detail"</span><span class="pun">:</span><span class="pln"> </span><span class="str">"Method \"GET\" not allowed."</span><span class="pln">
+</span><span class="pun">}</span></pre>
+                    </div>
+                </div>
+
+                <div class="tabbable">
+                    <ul class="nav nav-tabs form-switcher">
+                        <li class="active">
+                            <a name="html-tab" href="#post-object-form" data-toggle="tab" aria-expanded="true">HTML
+                                form</a>
+                        </li>
+                        <li>
+                            <a name="raw-tab" href="#post-generic-content-form" data-toggle="tab">Raw data</a>
+                        </li>
+                    </ul>
+
+                    <div class="well tab-content">
+                        <div class="tab-pane active" id="post-object-form">
+                            <form action="/dj-rest-auth/login/" method="POST" enctype="multipart/form-data"
+                                class="form-horizontal" novalidate="">
+                                <fieldset>
+                                    <input type="hidden" name="csrfmiddlewaretoken"
+                                        value="EP6Xcrnv9SCqwwDtBq7PxBNbR8bclZPbW9pcd29Ev2CHDM1QvNOzuQ5VEgHcGQKe" />
+
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label"> Username </label>
+
+                                        <div class="col-sm-10">
+                                            <input name="username" class="form-control" type="text" value="" />
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label"> Email </label>
+
+                                        <div class="col-sm-10">
+                                            <input name="email" class="form-control" type="email" value="" />
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label"> Password </label>
+
+                                        <div class="col-sm-10">
+                                            <input name="password" class="form-control" type="password" value="" />
+                                        </div>
+                                    </div>
+
+                                    <div class="form-actions">
+                                        <button class="btn btn-primary js-tooltip" title=""
+                                            data-original-title="Make a POST request on the Login resource">
+                                            POST
+                                        </button>
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
+
+                        <div class="tab-pane" id="post-generic-content-form">
+                            <form action="/dj-rest-auth/login/" method="POST" class="form-horizontal">
+                                <fieldset>
+                                    <div class="form-group">
+                                        <label for="id__content_type" class="col-sm-2 control-label">Media type:</label>
+                                        <div class="col-sm-10">
+                                            <select name="_content_type" data-override="content-type"
+                                                id="id__content_type" class="form-control">
+                                                <option value="application/json" selected="">
+                                                    application/json
+                                                </option>
+
+                                                <option value="application/x-www-form-urlencoded">
+                                                    application/x-www-form-urlencoded
+                                                </option>
+
+                                                <option value="multipart/form-data">
+                                                    multipart/form-data
+                                                </option>
+                                            </select>
+                                            <span class="help-block"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="id__content" class="col-sm-2 control-label">Content:</label>
+                                        <div class="col-sm-10">
+                                            <textarea name="_content" cols="40" rows="10" data-override="content"
+                                                id="id__content" class="form-control">
+{
+"username": "",
+"email": "",
+"password": ""
+}</textarea>
+                                            <span class="help-block"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-actions">
+                                        <button class="btn btn-primary js-tooltip" title=""
+                                            data-original-title="Make a POST request on the Login resource">
+                                            POST
+                                        </button>
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.content -->
+        </div>
+        <!-- /.container -->
+    </div>
+    <!-- ./wrapper -->
+
+    <script>
+        window.drf = {
+            csrfHeaderName: "X-CSRFTOKEN",
+            csrfToken:
+                "EP6Xcrnv9SCqwwDtBq7PxBNbR8bclZPbW9pcd29Ev2CHDM1QvNOzuQ5VEgHcGQKe",
+        };
+    </script>
+    <script src="/static/rest_framework/js/jquery-3.5.1.min.js"></script>
+    <script src="/static/rest_framework/js/ajax-form.js"></script>
+    <script src="/static/rest_framework/js/csrf.js"></script>
+    <script src="/static/rest_framework/js/bootstrap.min.js"></script>
+    <script src="/static/rest_framework/js/prettify-min.js"></script>
+    <script src="/static/rest_framework/js/default.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("form").ajaxForm();
+        });
+    </script>
+</body>
+
+</html>
